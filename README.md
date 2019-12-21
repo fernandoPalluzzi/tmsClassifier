@@ -5,7 +5,7 @@ The `tmsClassifier` package predicts subject diagnosis (Frontotemporal Dementia,
 
 ## Installation
 
-The development version of tmsClassifier can be installed from GitHub:
+The development version of `tmsClassifier` can be installed from GitHub:
 
 ```{r, eval = FALSE}
 devtools::install_github("fernandoPalluzzi/tmsClassifier")

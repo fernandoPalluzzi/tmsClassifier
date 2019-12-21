@@ -1,0 +1,16 @@
+Package: tmsClassifier
+Type: Package
+Title: Random Forest Classifiers for Transcranial Magnetic Stimulation Data
+Version: 0.1.0
+Date: 2019-12-20
+Author: Mario Grassi [aut], Fernando Palluzzi [aut, cre]
+Maintainer: Fernando Palluzzi <fernando.palluzzi@gmail.com>
+Description: The tmsClassifier package predicts subject diagnosis (Frontotemporal Dementia, Alzheimer's Disease, Dementia with Lewy Bodies, or Healthy) based on Transcranial Magnetic Stimulation (TMS) data, through the integration of linear modeling and Random Forest Classifiers.
+License: GPL-3
+Encoding: UTF-8
+LazyData: TRUE
+Depends: R (>= 3.4.4)
+Imports: CMA (>= 1.36.0), impute (>= 1.52.0), randomForest (>= 4.6-14)
+Suggests: BiocStyle, knitr, rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 6.1.1

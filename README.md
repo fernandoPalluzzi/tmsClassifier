@@ -15,8 +15,8 @@ With the term of "unknown subject" we define a patient with no ascertained diagn
 Default TMS signatures include: Alzheimer's Disease (AD), Frontotemporal Dementia (FTD), Dementia with Lewy Bodies (DLB), and healthy controls (HC).
 The prediction can be simply done with the tmsClassify command:
 
-n.subjects <- 10
-TMS <- tms.coef[sample(nrow(tms.coef), n.subjects), ]
+n.subjects <- 10  
+TMS <- tms.coef[sample(nrow(tms.coef), n.subjects), ]  
 predicted <- tmsClassify(TMS)
 
 In this example, we used estimated TMS regression coefficients from default data (object tms.coef). The user may generate a custom TMS coefficients matrix using tmsClassifier functions (see the documentation for details).

@@ -20,8 +20,18 @@
 # -------------------------------------------------------------------- #
 
 
-setClass("cross.validation", representation(DvsHC = "list", FTDvsNonFTD = "list", ADvsDLB = "list"))
+#' S4 class to represent classifier performances.
+#'
+#' @slot ctable Confusion 2x2 table
+#' @slot performance List of classifier performance indices
 setClass("performance", representation(ctable = "table", performance = "data.frame"))
+
+#' S4 class to represent k-fold cross-validation results.
+#'
+#' @slot DvsHC Performances for Disease-Healthy classidication
+#' @slot FTDvsNonFTD Performances for FTD-NonFTD classidication
+#' @slot ADvsDLB Performances for AD-DLB classidication
+setClass("cross.validation", representation(DvsHC = "list", FTDvsNonFTD = "list", ADvsDLB = "list"))
 
 #' @title Missing data imputation
 #'

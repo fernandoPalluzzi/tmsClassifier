@@ -20,10 +20,15 @@
 # -------------------------------------------------------------------- #
 
 
+globalVariables(c("tms.rfc1", "tms.rfc2", "tms.rfc3"))
+
 #' S4 class to represent classifier performances.
 #'
 #' @slot ctable Confusion 2x2 table
 #' @slot performance List of classifier performance indices
+#' 
+#' @importFrom methods setClass
+#' 
 setClass("performance", representation(ctable = "table", performance = "data.frame"))
 
 #' S4 class to represent k-fold cross-validation results.
@@ -31,6 +36,9 @@ setClass("performance", representation(ctable = "table", performance = "data.fra
 #' @slot DvsHC Performances for Disease-Healthy classidication
 #' @slot FTDvsNonFTD Performances for FTD-NonFTD classidication
 #' @slot ADvsDLB Performances for AD-DLB classidication
+#' 
+#' @importFrom methods setClass
+#' 
 setClass("cross.validation", representation(DvsHC = "list", FTDvsNonFTD = "list", ADvsDLB = "list"))
 
 #' @title Missing data imputation
@@ -211,7 +219,7 @@ tmsRegression <- function(tms, sici.icf = 1:7, sai = 8:11, lici = 12:14, adjust 
 #' parameters. This function provides a default RFC, requiring an input
 #' data.frame of 9 columns (4 for SICI-ICF, 3 for SAI, and 2 for LICI; see
 #' \code{\link[tmsClassifier]{tmsRegression}} for details). See function
-#' \code{\link[tmsClassifier]{tmsBuild}} to build a custom RFC.
+#' \code{\link[tmsClassifier]{buildPredictor}} to build a custom RFC.
 #' Alternatively, if a diagnosis column is present in the input data.frame,
 #' it can be used to test RFC performances through cross-validation.
 #' @param data A data.frame containing subjects as rows and TMS parameters
@@ -242,6 +250,7 @@ tmsRegression <- function(tms, sici.icf = 1:7, sai = 8:11, lici = 12:14, adjust 
 #' }
 #'
 #' @importFrom CMA GenerateLearningsets classification
+#' @importFrom methods new
 #' @export
 #'
 #' @references
@@ -379,6 +388,7 @@ recode <- function(data, status) {
 #' @return The input data.frame without outliers.
 #'
 #' @importFrom CMA GenerateLearningsets classification evaluation
+#' @importFrom graphics boxplot
 #' @export
 #'
 #' @references
@@ -547,6 +557,7 @@ predict.subject <- function(data) {
 #'
 #' @return An object of class \code{\link[tmsClassifier]{performance}}.
 #'
+#' @importFrom methods setClass
 #' @export
 #'
 performance <- function(obs = NULL, pred = NULL, CT = NULL, y = "0,1")
@@ -582,4 +593,3 @@ performance <- function(obs = NULL, pred = NULL, CT = NULL, y = "0,1")
 
 	return(P)
 }
-

@@ -29,7 +29,7 @@
 #' as "Diseased", the classification process moves to the second classifier
 #' (RFC2). In case of an "Healthy" subject, the classification process
 #' terminates.
-#' @name TMS_RFC1
+#' @name tms.rfc1
 #' @usage tms.rfc1
 #' @docType data
 #' @format

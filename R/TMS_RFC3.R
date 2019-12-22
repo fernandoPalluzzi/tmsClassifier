@@ -27,7 +27,7 @@
 #' classification that yielded "Non-FTD", RFC3 decides if the respective
 #' subject is of "AD" (Alzheimer's Disease) or "DLB" (Dementia with Lewy
 #' Bodies) class.
-#' @name TMS_RFC3
+#' @name tms.rfc3
 #' @usage tms.rfc3
 #' @docType data
 #' @format

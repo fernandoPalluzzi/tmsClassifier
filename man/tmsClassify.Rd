@@ -46,7 +46,7 @@ Healthy subject (HC), Frontotemporal Dementia (FTD), Alzheimer's Disease
 parameters. This function provides a default RFC, requiring an input
 data.frame of 9 columns (4 for SICI-ICF, 3 for SAI, and 2 for LICI; see
 \code{\link[tmsClassifier]{tmsRegression}} for details). See function
-\code{\link[tmsClassifier]{tmsBuild}} to build a custom RFC.
+\code{\link[tmsClassifier]{buildPredictor}} to build a custom RFC.
 Alternatively, if a diagnosis column is present in the input data.frame,
 it can be used to test RFC performances through cross-validation.
 }

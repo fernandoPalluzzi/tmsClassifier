@@ -27,7 +27,7 @@
 #' classification that yielded "Diseased", RFC2 decides if the respective
 #' subject is of "FTD" (Frontotemporal Dementia) or "Non-FTD" class.
 #' In case of an FTD subject, the classification process terminates.
-#' @name TMS_RFC2
+#' @name tms.rfc2
 #' @usage tms.rfc2
 #' @docType data
 #' @format

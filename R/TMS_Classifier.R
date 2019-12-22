@@ -67,7 +67,7 @@ setClass("cross.validation", representation(DvsHC = "list", FTDvsNonFTD = "list"
 #' @param max.na Maximum number of missing values per row (default max.na = 7).
 #' @param max.r Maximum percentage of missing values per row (default max.r = 0.5).
 #' @param max.c Maximum percentage of missing values per column (default max.c = 0.8).
-#' @param k Number of nearest neighbours to perform imputation.
+#' @param k Number of nearest neighbours to perform imputation (k = 10).
 #'
 #' @return The original data.frame with imputed missing values.
 #'

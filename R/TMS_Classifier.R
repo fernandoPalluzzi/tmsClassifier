@@ -593,4 +593,3 @@ performance <- function(obs = NULL, pred = NULL, CT = NULL, y = "0,1")
 
 	return(P)
 }
-

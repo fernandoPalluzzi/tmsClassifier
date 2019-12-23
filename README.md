@@ -76,7 +76,7 @@ yielding the input data with imputed missing values.
 
 ##  TMS regression parameters
 
-If TMS data do not contain missing values, it can be used to generate TMS regression coefficients (i.e., the input for the random forest classifier). Regression coefficients can be generated using the command:
+If TMS data do not contain missing values, it can be used to generate TMS regression coefficients (i.e., the input for the random forest classifier). For each subject, TMS indicators (SICI-ICF, SAI, LICI) are modeled as a polynomial functions of time (t), in the form y ~ poly(t). This function estimates two parameters for SICI (SICI = bs0 + bs\*t), two parameters for ICF (ICF = bi0 + bi\*t), three parameters for SAI (SAI = b0 + b1\*t + b2\*t^2), and two parameters for LICI (LICI = a0 + a1\*t). Regression coefficients can be generated using the command:
 
 ```{r, eval = FALSE}
 # No covariates adjustment

@@ -18,10 +18,13 @@ Default TMS signatures include: Alzheimer's Disease (AD), Frontotemporal Dementi
 The prediction can be simply done with the `tmsClassify` command:
 
 ```{r, eval = FALSE}
-library(tmsClassifier)  
-  
-n.subjects <- 10  
-TMS <- tms.coef[sample(nrow(tms.coef), n.subjects), ]  
+library(tmsClassifier)
+
+# Sample 10 random subjects from default TMS data
+n.subjects <- 10
+TMS <- tms.coef[sample(nrow(tms.coef), n.subjects), ]
+
+# Subjects' diagnosis prediction
 predicted <- tmsClassify(TMS)
 ```
 

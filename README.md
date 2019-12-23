@@ -13,7 +13,7 @@ devtools::install_github("fernandoPalluzzi/tmsClassifier")
 
 ## Unknown subject classification
 
-With the term of "unknown subject" we define a patient with no ascertained diagnosis. Package `tmsClassifier` provides a preset TMS coefficient matrix, that can be used to predict unknown subject diagnosis.
+With the term of "unknown subject" we define a patient with no ascertained diagnosis. Package `tmsClassifier` provides a default TMS coefficient matrix, that can be used to predict unknown subject diagnosis.
 Default TMS signatures include: Alzheimer's Disease (AD), Frontotemporal Dementia (FTD), Dementia with Lewy Bodies (DLB), and healthy controls (HC).
 The prediction can be simply done with the `tmsClassify` command:
 

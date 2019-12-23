@@ -76,7 +76,11 @@ yielding the input data with imputed missing values.
 If TMS data do not contain missing values, it can be used to generate TMS regression coefficients (i.e., the input for the random forest classifier). Regression coefficients can be generated using the command:
 
 ```{r, eval = FALSE}
+# No covariates adjustment
 B <- tmsRegression(tms)
+
+# Adjustment by center (column 16), sex (column 17), and age (column 18)
+B <- tmsRegression(tms, adjust = 16:18)
 ```
 
 Matrix B contains the 9 TMS regression coefficients (see previous section), as shown in the example below:

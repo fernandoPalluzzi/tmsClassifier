@@ -100,7 +100,7 @@ tmsImpute <- function(tms, sici.icf = 1:7, sai = 8:11, lici = 12:14, max.na = 7,
 #'
 #' @description Generate regression parameters from TMS data, needed for
 #' subject classification. For each subject, TMS indicators (SICI-ICF, SAI,
-#' LICI) are modeled as a polynomial functions of time, in the form
+#' LICI) are modeled as polynomial functions of time, in the form
 #' y ~ poly(t). This function estimates two parameters for SICI
 #' (SICI = bs0 + bs*t), two parameters for ICF (ICF = bi0 + bi*t), three
 #' parameters for SAI (SAI = b0 + b1*t + b2*t^2), and two parameters

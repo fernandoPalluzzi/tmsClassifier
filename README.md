@@ -27,14 +27,16 @@ predicted <- tmsClassify(TMS)
 
 In this example, we used estimated TMS regression coefficients from default data (object `tms.coef`). The user may generate a custom TMS coefficients matrix using `tmsClassifier` functions (see package documentation for details).
 
-## Input TMS data
+## Input TMS data and imputation
 
 Package tmsClassifier uses a default TMS data format. Subject classification is based on three blocks of attributes: (i) TMS measures, (ii) diagnosis field (optional), (iii) covariates (optional).  
 The default dataset includes 4 TMS measures:
 - SICI-ICF (SICI: short-interval intracortical inhibition; ICF: intracortical facilitation) as the first 7 columns, taken at times (interstimulus intervals, ISI): 1, 2, 3, 5 ms (SICI) and 7, 10, 15 ms (ICF);
 - SAI (short-latency afferent inhibition). By default, they should be the 4 columns following SICI-ICF, taken at time steps (ISI): -4, 0, 4, 8 ms;
 - LICI (long-interval intracortical inhibition). By default, they should be the 3 columns following SAI, taken at time
-steps (ISI): 50, 100, 150 ms.
+steps (ISI): 50, 100, 150 ms.  
+
+Optionally, the user may provide a column specifying subjects' diagnosis (e.g., the `diagnosis` field in the example below). This field is not required for dignosis prediction, but only to test RFC performances (see `tmsClassifier` documentation). In the TMS sample data below, the last columns are three common covariates: `center` (i.e., where data were generated), `sex` (i.e., subject's sex), and `age` (i.e., subject's age at which TMS was done). If required by the user, TMS regression parameters can be adjusted to remove covariates influence.
 
 ```{r, eval = FALSE}
   SICI_1  SICI_2 SICI_3 SICI_5     ICF_7 ICF_10   ICF_15    SAI_m4   SAI_0
@@ -61,4 +63,47 @@ steps (ISI): 50, 100, 150 ms.
 10 0.860 0.890 0.5860000 0.5800000 0.5900000       DLB     C1   M  78
 ```
 
+If TMS data contain missing values (`NA`), they can be inputed with the `tmsClassifier` command:
 
+```{r, eval = FALSE}
+tms <- tmsImpute(tms.withNA)
+```
+
+This function yields the input data with imputed missing values. 
+
+##  TMS regression parameters
+
+If TMS data do not contain missing values, it can be used to generate TMS regression coefficients (i.e., the input for the random forest classifier). Regression coefficients can be generated using the command:
+
+```{r, eval = FALSE}
+B <- tmsRegression(tms)
+```
+
+Matrix B contains the 9 TMS regression coefficients (see previous section), as shown in the example below:
+
+```{r, eval = FALSE}
+           bs0           bs         bi0            bi           b0
+1   0.44605611 -0.172286425 -0.28845631 -0.0103719530 -0.079070482
+2  -0.63479541  0.309619620  1.32187388 -0.0846722830  0.247493127
+3  -0.24740092 -0.049733826  0.64390434 -0.0071768698 -0.070655046
+4  -0.35290457  0.028751748  0.24985075 -0.0202048839 -0.170287969
+5  -0.01846587  0.006138788 -0.23161357  0.0043496782  0.136867922
+6   0.06317109  0.103245351  0.43792815 -0.0026170343  0.001647889
+7   0.07581085 -0.057192403 -0.05528611 -0.0066774232  0.215741779
+8  -0.01910764 -0.074350541  0.47464356 -0.0002787369 -0.154575367
+9   0.13769556  0.068909513  0.83590337  0.0290674695  0.086760707
+10  0.23425097 -0.050166576 -0.29430881 -0.0002431529 -0.167022626
+              b1            b2         a0           a1
+1  -0.0070619753 -0.0034500884 -0.9269894  0.011129428
+2   0.0285864074 -0.0065340234  0.1173041  0.061815564
+3   0.0082017802 -0.0001614682 -0.2955762 -0.004567065
+4   0.0335833733 -0.0050643560 -1.3435844  0.008719332
+5   0.0477466022 -0.0086142874 -0.4132057 -0.002285809
+6   0.0201640174 -0.0005187694  2.3338259  0.089213463
+7   0.0310105467 -0.0035992202 -9.8801634 -0.164766244
+8  -0.0424625002  0.0058572147  0.1134623 -0.007114505
+9   0.0140306025 -0.0083004128 -0.7459555  0.000597424
+10  0.0008075851  0.0019799213  0.5456834 -0.007858925
+```
+
+Package tmsClassifier comes with a default TMS regression coefficients matrix (object `tms.coef`), generated from 694 subjects: 273 Alzheimer's Disease patients (AD), 207 Frontotemporal Dementia patients (FTD), 67 Dementia with Lewy Bodies patients (DLB), and 147 healthy controls (HC).

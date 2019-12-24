@@ -32,7 +32,7 @@ In this example, we used estimated TMS regression coefficients from default data
 
 ## Input TMS data and imputation
 
-Package tmsClassifier uses a default TMS data format. Subject classification is based on three blocks of attributes: (i) TMS measures, (ii) diagnosis field (optional), (iii) covariates (optional).  
+Package tmsClassifier uses a default TMS data format. Subject classification is based on three blocks of attributes: (i) TMS measures, (ii) diagnosis field (optional), and (iii) covariates (optional).  
 The default dataset includes 4 TMS measures:
 - SICI-ICF (SICI: short-interval intracortical inhibition; ICF: intracortical facilitation) as the first 7 columns, taken at times (interstimulus intervals, ISI): 1, 2, 3, 5 ms (SICI) and 7, 10, 15 ms (ICF);
 - SAI (short-latency afferent inhibition). By default, they should be the 4 columns following SICI-ICF, taken at time steps (ISI): -4, 0, 4, 8 ms;
@@ -86,7 +86,7 @@ B <- tmsRegression(tms)
 B <- tmsRegression(tms, adjust = 16:18)
 ```
 
-Matrix B contains the 9 TMS regression coefficients (see previous section), as shown in the example below:
+Matrix B contains the 9 TMS regression coefficients, as shown in the example below:
 
 ```{r, eval = FALSE}
            bs0           bs         bi0            bi           b0

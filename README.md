@@ -39,7 +39,7 @@ The default dataset includes 4 TMS measures:
 - LICI (long-interval intracortical inhibition). By default, they should be the 3 columns following SAI, taken at time
 steps (ISI): 50, 100, 150 ms.  
 
-Optionally, the user may provide a column specifying subjects' diagnosis (e.g., the `diagnosis` field in the example below). This field is not required for dignosis prediction, but only to test RFC performances (see `tmsClassifier` documentation). In the TMS sample data below, the last three columns are common covariates: `center` (i.e., where data were generated), `sex` (i.e., subject's sex), and `age` (i.e., subject's age at which TMS was done). If required by the user, TMS regression parameters can be adjusted to remove covariates influence.
+Optionally, the user may provide a column specifying subjects' diagnosis (e.g., the `diagnosis` field in the example below). This field is not required for diagnosis prediction, but only to test RFC performances (see `tmsClassifier` documentation). In the TMS sample data below, the last three columns are common covariates: `center` (i.e., where data were generated), `sex` (i.e., subject's sex), and `age` (i.e., subject's age at which TMS was done). If required by the user, TMS regression parameters can be adjusted to remove covariates influence.
 
 ```{r, eval = FALSE}
   SICI_1  SICI_2 SICI_3 SICI_5     ICF_7 ICF_10   ICF_15    SAI_m4   SAI_0

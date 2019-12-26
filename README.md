@@ -28,11 +28,11 @@ TMS <- tms.coef[sample(nrow(tms.coef), n.subjects), ]
 predicted <- tmsClassify(TMS)
 ```
 
-In this example, we used estimated TMS regression coefficients from default data (object `tms.coef`). The user may generate a custom TMS coefficients matrix using `tmsClassifier` functions (see package documentation for details).
+The input `TMS` object must be a data.frame containing TMS regression coefficients as columns and subjects as rows. In this example, we used estimated TMS regression coefficients from default data (object `tms.coef`). The user may generate a custom TMS coefficients matrix using `tmsClassifier` functions (see below and package documentation for details).
 
 ## Input TMS data and imputation
 
-Package tmsClassifier uses a default TMS data format. Subject classification is based on three blocks of attributes: (i) TMS measures, (ii) diagnosis field (optional), and (iii) covariates (optional).  
+The TMS regression coefficient matrix can be directly generated from TMS data and, optionally, subject covariates (e.g., age and sex). Package tmsClassifier uses a default TMS data format, including three blocks of attributes (columns): (i) TMS measures, (ii) diagnosis field (optional), and (iii) covariates (optional).  
 The default dataset includes 4 TMS measures:
 - SICI-ICF (SICI: short-interval intracortical inhibition; ICF: intracortical facilitation) as the first 7 columns, taken at times (interstimulus intervals, ISI): 1, 2, 3, 5 ms (SICI) and 7, 10, 15 ms (ICF);
 - SAI (short-latency afferent inhibition). By default, they should be the 4 columns following SICI-ICF, taken at time steps (ISI): -4, 0, 4, 8 ms;
@@ -76,7 +76,7 @@ yielding the input data with imputed missing values.
 
 ##  TMS regression parameters
 
-If TMS data do not contain missing values, it can be used to generate TMS regression coefficients (i.e., the input for the random forest classifier). For each subject, TMS indicators (SICI-ICF, SAI, LICI) are modeled as polynomial functions of time (t), in the form y ~ poly(t). This function estimates two parameters for SICI (SICI = bs0 + bs\*t), two parameters for ICF (ICF = bi0 + bi\*t), three parameters for SAI (SAI = b0 + b1\*t + b2\*t^2), and two parameters for LICI (LICI = a0 + a1\*t). Regression coefficients can be generated using the command:
+If TMS data do not contain missing values, it can be used to generate TMS regression coefficients. This matrix is used as input for subject diagnosis prediction and other tmsClassifier functions. For each subject, TMS indicators (SICI-ICF, SAI, LICI) are modeled as polynomial functions of time (t), in the form y ~ poly(t). This function estimates two parameters for SICI (SICI = bs0 + bs\*t), two parameters for ICF (ICF = bi0 + bi\*t), three parameters for SAI (SAI = b0 + b1\*t + b2\*t^2), and two parameters for LICI (LICI = a0 + a1\*t). Regression coefficients can be generated using the command:
 
 ```{r, eval = FALSE}
 # No covariates adjustment

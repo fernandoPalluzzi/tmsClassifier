@@ -1,11 +1,11 @@
 # tmsClassifier
 Random Forest Classifiers for Transcranial Magnetic Stimulation Data
 
-The `tmsClassifier` package predicts subject diagnosis (Frontotemporal Dementia, Alzheimer's Disease, Dementia with Lewy Bodies, or Healthy) based on Transcranial Magnetic Stimulation (TMS) data, through the integration of linear modeling and Random Forest Classifiers.
+The **tmsClassifier** package predicts subject diagnosis (Frontotemporal Dementia, Alzheimer's Disease, Dementia with Lewy Bodies, or Healthy) based on Transcranial Magnetic Stimulation (TMS) data, through the integration of linear modeling and Random Forest Classifiers.
 
 ## Installation
 
-The development version of `tmsClassifier` can be installed from GitHub:
+The development version of **tmsClassifier** can be installed from GitHub:
 
 ```{r, eval = FALSE}
 devtools::install_github("fernandoPalluzzi/tmsClassifier")
@@ -13,7 +13,7 @@ devtools::install_github("fernandoPalluzzi/tmsClassifier")
 
 ## Unknown subject classification
 
-With the term of "unknown subject" we define a patient with no ascertained diagnosis. Package `tmsClassifier` provides a default TMS coefficient matrix, that can be used to predict unknown subject diagnosis.
+With the term of "unknown subject" we define a patient with no ascertained diagnosis. Package **tmsClassifier** provides a default TMS coefficient matrix, that can be used to predict unknown subject diagnosis.
 Default TMS signatures include: Alzheimer's Disease (AD), Frontotemporal Dementia (FTD), Dementia with Lewy Bodies (DLB), and healthy controls (HC).
 The prediction can be simply done with the `tmsClassify` command:
 
@@ -28,18 +28,18 @@ TMS <- tms.coef[sample(nrow(tms.coef), n.subjects), ]
 predicted <- tmsClassify(TMS)
 ```
 
-The input `TMS` object must be a data.frame containing TMS regression coefficients as columns and subjects as rows. In this example, we used estimated TMS regression coefficients from default data (object `tms.coef`). The user may generate a custom TMS coefficients matrix using `tmsClassifier` functions (see below and package documentation for details).
+The input `TMS` object must be a data.frame containing TMS regression coefficients as columns and subjects as rows. In this example, we used estimated TMS regression coefficients from default data (object `tms.coef`). The user may generate a custom TMS coefficients matrix using **tmsClassifier** functions (see below and package documentation for details).
 
 ## Input TMS data and imputation
 
-The TMS regression coefficient matrix can be directly generated from TMS data and, optionally, subject covariates (e.g., age and sex). Package tmsClassifier uses a default TMS data format, including three blocks of attributes (columns): (i) TMS measures, (ii) diagnosis field (optional), and (iii) covariates (optional).  
+The TMS regression coefficient matrix can be directly generated from TMS data and, optionally, subject covariates (e.g., age and sex). Package **tmsClassifier** uses a default TMS data format, including three blocks of attributes (columns): (i) TMS measures, (ii) diagnosis field (optional), and (iii) covariates (optional).  
 The default dataset includes 4 TMS measures:
 - SICI-ICF (SICI: short-interval intracortical inhibition; ICF: intracortical facilitation) as the first 7 columns, taken at times (interstimulus intervals, ISI): 1, 2, 3, 5 ms (SICI) and 7, 10, 15 ms (ICF);
 - SAI (short-latency afferent inhibition). By default, they should be the 4 columns following SICI-ICF, taken at time steps (ISI): -4, 0, 4, 8 ms;
 - LICI (long-interval intracortical inhibition). By default, they should be the 3 columns following SAI, taken at time
 steps (ISI): 50, 100, 150 ms.  
 
-Optionally, the user may provide a column specifying subjects' diagnosis (e.g., the `diagnosis` field in the example below). This field is not required for diagnosis prediction, but only to test RFC performances (see `tmsClassifier` documentation). In the TMS sample data below, the last three columns are common covariates: `center` (i.e., where data were generated), `sex` (i.e., subject's sex), and `age` (i.e., subject's age at which TMS was done). If required by the user, TMS regression parameters can be adjusted to remove covariates influence.
+Optionally, the user may provide a column specifying subjects' diagnosis (e.g., the `diagnosis` field in the example below). This field is not required for diagnosis prediction, but only to test RFC performances (see **tmsClassifier** documentation). In the TMS sample data below, the last three columns are common covariates: `center` (i.e., where data were generated), `sex` (i.e., subject's sex), and `age` (i.e., subject's age at which TMS was done). If required by the user, TMS regression parameters can be adjusted to remove covariates influence.
 
 ```{r, eval = FALSE}
   SICI_1  SICI_2 SICI_3 SICI_5     ICF_7 ICF_10   ICF_15    SAI_m4   SAI_0
@@ -66,17 +66,17 @@ Optionally, the user may provide a column specifying subjects' diagnosis (e.g., 
 10 0.860 0.890 0.5860000 0.5800000 0.5900000       DLB     C1   M  78
 ```
 
-If TMS data contain missing values (`NA`), they can be inputed with the `tmsClassifier` command:
+If TMS data contain missing values (`NA`), they can be inputed with the `tmsImpute` command:
 
 ```{r, eval = FALSE}
 tms <- tmsImpute(tms.withNA)
 ```
 
-yielding the input data with imputed missing values. 
+yielding the input dataset with imputed missing values. 
 
 ##  TMS regression parameters
 
-If TMS data do not contain missing values, it can be used to generate TMS regression coefficients. This matrix is used as input for subject diagnosis prediction and other tmsClassifier functions. For each subject, TMS indicators (SICI-ICF, SAI, LICI) are modeled as polynomial functions of time (t), in the form y ~ poly(t). This function estimates two parameters for SICI (SICI = bs0 + bs\*t), two parameters for ICF (ICF = bi0 + bi\*t), three parameters for SAI (SAI = b0 + b1\*t + b2\*t^2), and two parameters for LICI (LICI = a0 + a1\*t). Regression coefficients can be generated using the command:
+If TMS data do not contain missing values, it can be used to generate TMS regression coefficients. This matrix is used as input for subject diagnosis prediction and other **tmsClassifier** functions. For each subject, TMS indicators (SICI-ICF, SAI, LICI) are modeled as polynomial functions of time (t), in the form y ~ poly(t). This function estimates two parameters for SICI (SICI = bs0 + bs\*t), two parameters for ICF (ICF = bi0 + bi\*t), three parameters for SAI (SAI = b0 + b1\*t + b2\*t^2), and two parameters for LICI (LICI = a0 + a1\*t). Regression coefficients can be generated using the command:
 
 ```{r, eval = FALSE}
 # No covariates adjustment
@@ -113,4 +113,4 @@ Matrix B contains the 9 TMS regression coefficients, as shown in the example bel
 10  0.0008075851  0.0019799213  0.5456834 -0.007858925
 ```
 
-Package tmsClassifier comes with a default TMS regression coefficients matrix (object `tms.coef`), generated from 694 subjects: 273 Alzheimer's Disease patients (AD), 207 Frontotemporal Dementia patients (FTD), 67 Dementia with Lewy Bodies patients (DLB), and 147 healthy controls (HC).
+The default TMS regression coefficients matrix in **tmsClassifier** (object `tms.coef`) is generated from 694 subjects: 273 Alzheimer's Disease patients (AD), 207 Frontotemporal Dementia patients (FTD), 67 Dementia with Lewy Bodies patients (DLB), and 147 healthy controls (HC).

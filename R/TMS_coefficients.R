@@ -25,9 +25,9 @@
 #' @description Data.frame of TMS regression coefficients derived from 
 #' default TMS data (Benussi, 2017). They include regression coefficients 
 #' over time (t) for short-interval intracortical inhibition 
-#' (SICI ~ bs0 + bs*t), intracortical facilitation (ICF ~ bi0 + bi*t), 
-#' short-latency afferent inhibition (SAI ~ b0 + b1*t + b2*t^2), and 
-#' long-interval intracortical inhibition (LICI ~ a0 + a1*t).
+#' (SICI = bs0 + bs*t), intracortical facilitation (ICF = bi0 + bi*t), 
+#' short-latency afferent inhibition (SAI = b0 + b1*t + b2*t^2), and 
+#' long-interval intracortical inhibition (LICI = a0 + a1*t).
 #' @name tms.coef
 #' @usage tms.coef
 #' @docType data

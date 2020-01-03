@@ -382,8 +382,8 @@ recode <- function(data, status) {
 #' status = 10).
 #' @param k Number of cross-validation cycles (default k = 5).
 #' @param b Maximum Brier score beyond which a subject is considered as
-#' an outlier. By default, b = 1. If b is set to NULL, outliers will be
-#' automatically set to Q3 + 1.5*(Q3 - Q1).
+#' an outlier. By default, b = 1. If b is set to NULL, outliers threshold 
+#' will be automatically set to Q3 + 1.5*(Q3 - Q1).
 #'
 #' @return The input data.frame without outliers.
 #'

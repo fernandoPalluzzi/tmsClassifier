@@ -23,7 +23,7 @@
 #' @title D-HC Random Forest Classifier (RFC1)
 #'
 #' @description This is the first of three RFCs used by tmsClssifier to
-#' predict subjects' disgnosis on the base of TMS data. The RFC1 classify
+#' predict subjects' disgnosis on the base of TMS data. RFC1 classifies 
 #' subjects in either "Diseased" (AD, FTD, or DLB) or "Healthy" (i.e. the
 #' typical TMS signature of heathy controls). If a subject is classified
 #' as "Diseased", the classification process moves to the second classifier

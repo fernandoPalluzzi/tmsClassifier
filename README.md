@@ -114,3 +114,7 @@ Matrix B contains the 9 TMS regression coefficients, as shown in the example bel
 ```
 
 The default TMS regression coefficients matrix in **tmsClassifier** (object `tms.coef`) is generated from 694 subjects: 273 Alzheimer's Disease patients (AD), 207 Frontotemporal Dementia patients (FTD), 67 Dementia with Lewy Bodies patients (DLB), and 147 healthy controls (HC).
+
+## Reference
+
+Benussi A, Grassi M, Palluzzi F, Koch G, Di Lazzaro V, Nardone R, Cantoni V, Dell'Era V, Premi E, Martorana A, di Lorenzo F, Bonnì S, Ranieri F, Capone F, Musumeci G, Cotelli MS, Padovani A, Borroni B. **Classification accuracy of TMS for the diagnosis of neurodegenerative dementias**. *Ann Neurol.* 2020 Jan 10. doi: 10.1002/ana.25677.

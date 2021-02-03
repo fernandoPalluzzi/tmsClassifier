@@ -118,8 +118,8 @@ The default TMS regression coefficients matrix in **tmsClassifier** (object `tms
 ## References
 
 Benussi A*, Grassi M*, Palluzzi F*, Cantoni V, Cotelli MS, Premi E, Di Lorenzo F, Pellicciari MC, Ranieri F, Musumeci G, Marra C, Manganotti P, Nardone R, Di Lazzaro V, Koch G, Borroni B. **Classification Accuracy of TMS for the Diagnosis of Mild Cognitive Impairment**. *Brain Stimulation* 2021 Mar; 14(2):
-241-249. PMID: 33453454. DOI: 10.1016/j.brs.2021.01.004. * These authors contributed equally.
+241-249. PMID: 33453454. DOI: 10.1016/j.brs.2021.01.004. * *These authors contributed equally*.
 
 Benussi A*, Grassi M*, Palluzzi F*, Koch G, Di Lazzaro V, Nardone R, Cantoni V, Dell'Era V, Premi E, Martorana A, Di Lorenzo F, Bonnì S, Ranieri F, Capone F, Musumeci G, Cotelli MS, Padovani A, Borroni B. **Classification Accuracy of Transcranial Magnetic Stimulation for the Diagnosis of
-Neurodegenerative Dementias**. *Annals of Neurology* 2020 Mar; 87(3): 394-404. PMID: 1925823. DOI: 10.1002/ana.25677.  * These authors contributed equally.
+Neurodegenerative Dementias**. *Annals of Neurology* 2020 Mar; 87(3): 394-404. PMID: 1925823. DOI: 10.1002/ana.25677.  * *These authors contributed equally*.
 

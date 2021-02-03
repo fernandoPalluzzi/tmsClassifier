@@ -115,6 +115,10 @@ Matrix B contains the 9 TMS regression coefficients, as shown in the example bel
 
 The default TMS regression coefficients matrix in **tmsClassifier** (object `tms.coef`) is generated from 694 subjects: 273 Alzheimer's Disease patients (AD), 207 Frontotemporal Dementia patients (FTD), 67 Dementia with Lewy Bodies patients (DLB), and 147 healthy controls (HC).
 
-## Reference
+## References
 
-Benussi A, Grassi M, Palluzzi F, Koch G, Di Lazzaro V, Nardone R, Cantoni V, Dell'Era V, Premi E, Martorana A, di Lorenzo F, Bonnì S, Ranieri F, Capone F, Musumeci G, Cotelli MS, Padovani A, Borroni B. **Classification accuracy of TMS for the diagnosis of neurodegenerative dementias**. *Ann Neurol.* 2020 Jan 10. doi: 10.1002/ana.25677.
+Benussi A, Grassi M, Palluzzi F, Cantoni V, Cotelli MS, Premi E, Di Lorenzo F, Pellicciari MC, Ranieri F, Musumeci G, Marra C, Manganotti P, Nardone R, Di Lazzaro V, Koch G, Borroni B. **Classification Accuracy of TMS for the Diagnosis of Mild Cognitive Impairment**. *Brain Stimulation* 2021 Mar; 14(2):
+241-249. PMID: 33453454. DOI: 10.1016/j.brs.2021.01.004.
+
+Benussi A, Grassi M, Palluzzi F, Koch G, Di Lazzaro V, Nardone R, Cantoni V, Dell'Era V, Premi E, Martorana A, Di Lorenzo F, Bonnì S, Ranieri F, Capone F, Musumeci G, Cotelli MS, Padovani A, Borroni B. **Classification Accuracy of Transcranial Magnetic Stimulation for the Diagnosis of
+Neurodegenerative Dementias**. *Annals of Neurology* 2020 Mar; 87(3): 394-404. PMID: 1925823. DOI: 10.1002/ana.25677.
